@@ -1,0 +1,71 @@
+@import 'base/variables';
+@import 'blocks/header';
+@import 'blocks/subheader';
+@import 'blocks/product';
+@import 'blocks/descr';
+@import 'blocks/carousel';
+@import 'blocks/modal';
+@import 'blocks/review';
+
+
+
+
+@font-face {
+    font-family: 'GT Eesti Pro Display';
+    src: url('../../fonts/GT\ Eesti\ Pro\ Display-Thin.woff2');
+    font-style: normal;
+    font-weight: 100;
+}
+
+@font-face {
+    font-family: 'GT Eesti Pro Display';
+    src: url('../../fonts/GT\ Eesti\ Pro\ Display-Light.woff2');
+    font-style: normal;
+    font-weight: 200;
+}
+
+@font-face {
+    font-family: 'GT Eesti Pro Display';
+    src: url('../../fonts/GT\ Eesti\ Pro\ Display-Regular.woff2');
+    font-style: normal;
+    font-weight: 300;
+}
+
+@font-face {
+    font-family: 'GT Eesti Pro Display';
+    src: url('../../fonts/GT\ Eesti\ Pro\ Display-Medium.woff2');
+    font-style: normal;
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: 'GT Eesti Pro Display';
+    src: url('../../fonts/GT\ Eesti\ Pro\ Display-Bold.woff2');
+    font-style: normal;
+    font-weight: 700;
+}
+
+* {
+    font-family: 'GT Eesti Pro Display';
+    margin: 0;
+    padding: 0;
+    font-weight: 300;
+}
+
+h3 {
+    font-weight: 300;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+.container {
+    padding-left: 115px;
+    padding-right: 115px;
+    max-width: calc(128rem + 40px);
+}

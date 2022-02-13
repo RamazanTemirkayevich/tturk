@@ -1,0 +1,105 @@
+.subheader {
+    margin-top: 30px;
+    margin-bottom: 30px;
+
+    &__header {
+        display: flex;
+        align-items: center;
+    }
+
+    &__header-btn {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        padding: 5px;
+        position: static;
+        width: 70px;
+        height: 30px;
+        background: #FAFAFA;
+        border-radius: 5px;
+        span {
+            color: #2F76FF;
+            font-weight: 500;
+        }
+    }
+
+    &__menu {
+        display: flex;
+        margin-left: 25px;
+    }
+
+    &__menu-list {
+        display: flex;
+    }
+
+    &__menu-item {
+        padding-right: 0;
+
+        &:before {
+            content: "/";
+            margin-right: 5px;
+            margin-left: 5px;
+            font-size: 18px;
+            color: #909090;
+        }
+
+        a {
+            color: #0a0a0a;
+        }
+    }
+
+    &__product {
+        margin-top: 27px;
+    }
+
+    &__title {
+        font-weight: 500;
+        font-size: 28px;
+    }
+
+    &__subtitle {
+        display: flex;
+        align-items: center;
+        margin-top: 14px;
+    }
+
+    &__subtitle-p {
+        margin-left: 8px;
+        font-size: 16px;
+        color: #626262;
+    }
+
+    &__subtitle-list {
+        display: flex;
+    }
+
+    &__subtitle-item {
+        padding: 0 14px;
+        font-size: 16px;
+        color: $main-color;
+    }
+
+    &__btn {
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        width: 136px;
+        height: 26px;
+        background: #EBF2FF;
+        border-radius: 5px;
+        border: none;
+        color: $main-color;
+        cursor: pointer;
+    }
+
+    &__name {
+        margin-left: auto;
+        color: #919191;
+    }
+
+    &__line {
+        margin-top: 10px;
+        width: 100%;
+        border: 1px solid #EEEEEE;
+    }
+}
