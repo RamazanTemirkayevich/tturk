@@ -1,0 +1,60 @@
+.tabcontainer {
+    display: flex;
+    width: 461px;
+    height: 510px;
+
+    &__main {
+        width: 400px;
+        height: 510px;
+        border: 2px solid #EEEEEE;
+        box-sizing: border-box;
+        border-radius: 5px;
+    }
+
+    &__active {
+        display: none;
+        &>img {
+            width: 400px;
+            height: 510px;
+            border-radius: 2px;
+        }
+    }
+
+    &__active.active {
+        display: block;
+    }
+
+    &__column {
+        display: flex;
+        flex-direction: column;
+
+        &-img {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 51px;
+            height: 63px;
+            border: 2px solid #EEEEEE;
+            box-sizing: border-box;
+            border-radius: 5px;
+            cursor: pointer;
+            &>img {
+                width: 45px;
+                height: 57px;
+                border-radius: 2px;
+            }
+            &:hover {
+                border: 2px solid #2F76FF;
+                box-sizing: border-box;
+                border-radius: 5px;
+                transition: 0.7s;
+            }
+        }
+
+        &-img.active {
+            border: 2px solid #2F76FF;
+            box-sizing: border-box;
+            border-radius: 5px;
+        }
+    }
+}

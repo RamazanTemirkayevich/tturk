@@ -2,12 +2,7 @@ window.addEventListener('DOMContentLoaded', function () {
 
     // size 
 
-    let sizeShow = document.querySelector('.product__size-name__span');
-    let sizeChoise = document.querySelector('#xs-choise');
 
-    sizeChoise.addEventListener("click", () => {
-        sizeShow;
-    });
 
     // counter
 
@@ -30,7 +25,7 @@ window.addEventListener('DOMContentLoaded', function () {
         if (count != 1) {
             count--;
         };
-    
+
         updateDisplay();
     });
 
@@ -54,7 +49,7 @@ window.addEventListener('DOMContentLoaded', function () {
     const movePosition = slidesToScroll * itemWidth;
 
     items.forEach((item) => {
-         item.style.minWidth = `${itemWidth}px`;
+        item.style.minWidth = `${itemWidth}px`;
     });
 
     btnNext.addEventListener('click', () => {
@@ -101,7 +96,7 @@ window.addEventListener('DOMContentLoaded', function () {
     const movePositionReview = slidesToScroll * itemWidthReview;
 
     itemsReview.forEach((item) => {
-         item.style.minWidth = `${itemWidthReview}px`;
+        item.style.minWidth = `${itemWidthReview}px`;
     });
 
     btnReviewNext.addEventListener('click', () => {
@@ -139,16 +134,6 @@ window.addEventListener('DOMContentLoaded', function () {
     const modalContainer = document.getElementById('modal-container');
     const closeBtn = document.getElementById('close-modal');
 
-    // openBtn.addEventListener('click', () => {
-    //     modalContainer.classList.add('show');
-    //     modalContainer.classList.remove('hide');
-    // });
-
-    // closeBtn.addEventListener('click', () => {
-    //     modalContainer.classList.add('hide');
-    //     modalContainer.classList.remove('show');
-    // });
-
     openBtn.addEventListener('click', openModal);
 
     closeBtn.addEventListener('click', closeModal);
@@ -166,6 +151,70 @@ window.addEventListener('DOMContentLoaded', function () {
     function outsideClick(e) {
         if (e.target == modalContainer) {
             modalContainer.style.display = 'none';
+        };
+    };
+
+    // add/remove 
+
+    const addItem = document.getElementById('add-btn');
+    const itemList = document.getElementById('list-item');
+    const removeItem = document.getElementById('remove-btn');
+
+    addItem.addEventListener('click', () => {
+        itemList++;
+        itemList.style.display = 'block';
+    });
+
+    removeItem.addEventListener('click', () => {
+        itemList.style.display = 'none';
+    });
+
+    // upload 
+
+    let fileInput = document.getElementById("file-input");
+    let uploadContainer = document.getElementById("images");
+    let numOfFiles = document.getElementById("num-of-files");
+
+    function preview() {
+        uploadContainer.innerHTML = "";
+        numOfFiles.textContent = `${fileInput.files.length} Files Selected`;
+
+        for (i of fileInput.files) {
+            let reader = new FileReader();
+            let figure = document.createElement("figure");
+            let figCap = document.createElement("figcaption");
+            figCap.innerText = i.name;
+            figure.appendChild(figCap);
+            reader.onload = () => {
+                let img = document.createElement("img");
+                img.setAttribute("src", reader.result);
+                figure.insertBefore(img, figCap);
+            }
+            uploadContainer.appendChild(figure);
+            reader.readAsDataURL(i);
+        };
+    };
+    preview();
+
+    // tab img
+
+    const tabs = document.querySelector(".tabcontainer");
+    const tabButton = document.querySelectorAll(".tabcontainer__column-img");
+    const contents = document.querySelectorAll(".tabcontainer__active");
+
+    tabs.onclick = e => {
+        const id = e.target.dataset.id;
+        if (id) {
+            tabButton.forEach(btn => {
+                btn.classList.remove("active");
+            });
+            e.target.classList.add("active");
+
+            contents.forEach(tabcontainer__active => {
+                tabcontainer__active.classList.remove("active");
+            });
+            const element = document.getElementById(id);
+            element.classList.add("active");
         };
     };
 });

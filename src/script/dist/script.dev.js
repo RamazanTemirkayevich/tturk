@@ -1,13 +1,10 @@
 "use strict";
 
+function _readOnlyError(name) { throw new Error("\"" + name + "\" is read-only"); }
+
 window.addEventListener('DOMContentLoaded', function () {
   // size 
-  var sizeShow = document.querySelector('.product__size-name__span');
-  var sizeChoise = document.querySelector('#xs-choise');
-  sizeChoise.addEventListener("click", function () {
-    sizeShow;
-  }); // counter
-
+  // counter
   var counterDisplayElem = document.querySelector('.product__counter-number');
   var counterShow = document.querySelector('.product__amount__span');
   var counterMinusElem = document.querySelector('.product__counter-minus');
@@ -112,15 +109,7 @@ window.addEventListener('DOMContentLoaded', function () {
 
   var openBtn = document.getElementById('open');
   var modalContainer = document.getElementById('modal-container');
-  var closeBtn = document.getElementById('close-modal'); // openBtn.addEventListener('click', () => {
-  //     modalContainer.classList.add('show');
-  //     modalContainer.classList.remove('hide');
-  // });
-  // closeBtn.addEventListener('click', () => {
-  //     modalContainer.classList.add('hide');
-  //     modalContainer.classList.remove('show');
-  // });
-
+  var closeBtn = document.getElementById('close-modal');
   openBtn.addEventListener('click', openModal);
   closeBtn.addEventListener('click', closeModal);
   window.addEventListener('click', outsideClick);
@@ -145,5 +134,92 @@ window.addEventListener('DOMContentLoaded', function () {
     ;
   }
 
+  ; // add/remove 
+
+  var addItem = document.getElementById('add-btn');
+  var itemList = document.getElementById('list-item');
+  var removeItem = document.getElementById('remove-btn');
+  addItem.addEventListener('click', function () {
+    _readOnlyError("itemList"), itemList++;
+    itemList.style.display = 'block';
+  });
+  removeItem.addEventListener('click', function () {
+    itemList.style.display = 'none';
+  }); // upload 
+
+  var fileInput = document.getElementById("file-input");
+  var uploadContainer = document.getElementById("images");
+  var numOfFiles = document.getElementById("num-of-files");
+
+  function preview() {
+    uploadContainer.innerHTML = "";
+    numOfFiles.textContent = "".concat(fileInput.files.length, " Files Selected");
+    var _iteratorNormalCompletion = true;
+    var _didIteratorError = false;
+    var _iteratorError = undefined;
+
+    try {
+      var _loop = function _loop() {
+        i = _step.value;
+        var reader = new FileReader();
+        var figure = document.createElement("figure");
+        var figCap = document.createElement("figcaption");
+        figCap.innerText = i.name;
+        figure.appendChild(figCap);
+
+        reader.onload = function () {
+          var img = document.createElement("img");
+          img.setAttribute("src", reader.result);
+          figure.insertBefore(img, figCap);
+        };
+
+        uploadContainer.appendChild(figure);
+        reader.readAsDataURL(i);
+      };
+
+      for (var _iterator = fileInput.files[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+        _loop();
+      }
+    } catch (err) {
+      _didIteratorError = true;
+      _iteratorError = err;
+    } finally {
+      try {
+        if (!_iteratorNormalCompletion && _iterator["return"] != null) {
+          _iterator["return"]();
+        }
+      } finally {
+        if (_didIteratorError) {
+          throw _iteratorError;
+        }
+      }
+    }
+
+    ;
+  }
+
   ;
+  preview(); // tab img
+
+  var tabs = document.querySelector(".tabcontainer");
+  var tabButton = document.querySelectorAll(".tabcontainer__column-img");
+  var contents = document.querySelectorAll(".tabcontainer__active");
+
+  tabs.onclick = function (e) {
+    var id = e.target.dataset.id;
+
+    if (id) {
+      tabButton.forEach(function (btn) {
+        btn.classList.remove("active");
+      });
+      e.target.classList.add("active");
+      contents.forEach(function (tabcontainer__active) {
+        tabcontainer__active.classList.remove("active");
+      });
+      var element = document.getElementById(id);
+      element.classList.add("active");
+    }
+
+    ;
+  };
 });

@@ -1,0 +1,16 @@
+@media (max-width: 1400px) {
+  .header {
+    width: 1332px;
+  }
+  .header__main {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-top: 6px;
+  }
+
+  .container {
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+}
